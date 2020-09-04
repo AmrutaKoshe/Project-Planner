@@ -1,11 +1,13 @@
 body{
-  /* background-image: url('birdbg.jpeg'); */
+  background-color: #eff2f8;
+  background-image: url('images/birddbgg.jpg');
   background-repeat: no-repeat;
+  background-size: auto 100%;
 }
 
 form {
-  border: 3px solid #dddddd;
-  background-color: rgb(243, 243, 243);
+  border: 3px solid #cacaca;
+  
    width: 100%;
   height: 100%; 
 }
@@ -15,7 +17,6 @@ input[type=text], input[type=password] {
   width: 80%;
   padding: 12px 20px;
   margin: 8px 0;
-  /* display: inline-block; */
   border: 1px solid rgb(151, 151, 151);
   border-radius: 5px;
   box-sizing: border-box;
@@ -46,25 +47,31 @@ button {
 
 
 button:hover {
-  opacity: 0.8;
+  background-color: #6380c0;
 }
+
 
 .container {
   padding: 20px;
   text-align: center;
   margin-top: 13%;
-  background-color: rgb(230, 230, 230);
-  margin-left: 55%;
+  background-color: rgb(226, 234, 248);
+  margin-left: 50%;
   width: 30%;
   height: 210px;
   border-radius: 30px;
+  border: 1px solid rgb(135, 148, 175);
 }
 
 @media screen and (max-width: 768px){
   .container {
     margin-left: 10%;
     text-align: center;
-    margin-top: 60%;
+    margin-top: 50%;
     width: 70%;
+  }
+
+  body{
+    background-image: none;
   }
 }
