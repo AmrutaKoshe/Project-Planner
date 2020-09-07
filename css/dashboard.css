@@ -135,23 +135,26 @@
   margin-left: 0px;
 }
 .content{
-  /* position: absolute;
+  position: absolute;
   top: 50%;
-  left: 50%; */
-  /* transform: translate(-50%,-50%); */
-  /* color: #202020; */
-  /* z-index: -1;
-  width: 100%; */
-  /* text-align: center; */
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #202020;
+  z-index: -1;
+  width: 100%;
+  text-align: center;
 }
-/* .content .header{
+.content .header{
   font-size: 45px;
   font-weight: 700;
 }
 .content p{
-  font-size: 40px;
-  font-weight: 700;
-} */
+  font-size: 26px;
+  font-weight: 600;
+  margin-left: 17%;
+  margin-top: 1.2%;
+  color: rgb(80, 77, 77);
+} 
 
 /* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
 /* *{
@@ -246,6 +249,68 @@
   display: none;
 }
 
+button{
+  position: relative;
+  height: 90px;
+  width: 260px;
+  margin: 0%;
+  margin-left: 18%;
+  font-size: 23px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  box-shadow: 7px 7px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  border: 1px solid #7bb1dd;
+  outline: none;
+  cursor: pointer;
+  background: #215f92;
+  overflow: hidden;
+  transition: 0.6s;
+  color: #ffffff;
+
+}
+
+/* button:last-child{
+  color: #ce5c0c;
+  border-color: #ce5c0c;
+} */
+button:before, button:after{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  filter: blur(30px);
+  opacity: 0.4;
+  transition: 0.6s;
+}
+button:before{
+  width: 60px;
+  background: rgba(255,255,255,0.6);
+  transform: translateX(-130px) skewX(-45deg);
+}
+button:after{
+  width: 30px;
+  background: rgba(255,255,255,0.6);
+  transform: translateX(-130px) skewX(-45deg);
+}
+button:hover:before,
+button:hover:after{
+  opacity: 0.6;
+  transform: translateX(320px) skewX(-45deg);
+}
+button:hover{
+  color: #f2f2f2;
+  background: #e29339;
+  border: 1px solid #e79536;
+  /* background: #29ac50; */
+}
+/* button:hover:last-child{
+  background: #ce5c0c;
+} */
+
+
 @media screen and (min-width: 1025px){
   .wrapper .menu-btn{
     display: none;
@@ -279,7 +344,9 @@
   
   .wrapper .menu-btn{
     left: 10px;
+    top: 5px;
   }
+
 }
 
 @media screen and (max-width: 360px){
