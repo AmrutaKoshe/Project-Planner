@@ -151,7 +151,7 @@
 .content1 p{
   font-size: 26px;
   font-weight: 600;
-  margin-left: 17%;
+  margin-left: 0%;
   margin-top: 1.2%;
   color: rgb(99, 93, 93);
 }
@@ -254,7 +254,7 @@ button{
   height: 90px;
   width: 260px;
   margin: 0%;
-  margin-left: 18%;
+  margin-left: 0%;
   font-size: 23px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -321,6 +321,14 @@ button:hover{
 
   #sidebar{
     left: 0px;
+  }
+
+  button{
+    margin-left: 18%;
+  }
+
+  .content1 p{
+    margin-left: 17%;
   }
 
 }
