@@ -144,17 +144,17 @@
   width: 100%;
   text-align: center;
 }
-.content .header{
+/* .content .header{
   font-size: 45px;
   font-weight: 700;
-}
+} */
 .content1 p{
   font-size: 26px;
   font-weight: 600;
   margin-left: 17%;
   margin-top: 1.2%;
-  color: rgb(80, 77, 77);
-} 
+  color: rgb(99, 93, 93);
+}
 
 /* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
 /* *{
@@ -303,13 +303,12 @@ button:hover:after{
 button:hover{
   color: #f2f2f2;
   background: #e29339;
-  border: 1px solid #e79536;
+  border: 1px solid #d38b39;
   /* background: #29ac50; */
 }
 /* button:hover:last-child{
   background: #ce5c0c;
 } */
-
 
 @media screen and (min-width: 1025px){
   .wrapper .menu-btn{
