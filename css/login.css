@@ -153,4 +153,12 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
-/* Comment*/
+
+@media screen and (max-width: 768px){
+  .wrapper{
+    margin-left: 0%;
+    width: 80%;
+  }
+}
+
+
