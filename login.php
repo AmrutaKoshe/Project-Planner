@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Planner | Login</title>
     <link rel="stylesheet" href="css/login.css">
-  </head>
-  <body>
+</head>
+<body>
     <div class="wrapper">
       <div class="title">Login Form</div>
       <form action="validation.php" method="post">
@@ -28,7 +28,7 @@
 </div> -->
         <div class="field" id="log"><input type="submit" value="LOGIN"></div>
         <div class="signup-link">Not a member? <a href="Register.php">Signup now</a></div>
-</form>
-</div>
+    </form>
+    </div>
 </body>
 </html>
