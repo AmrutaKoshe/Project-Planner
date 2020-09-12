@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Planner</title>
     <link rel="stylesheet" href="css/Register.css">
+
+    <style>
+
+    body{
+            background-image: url('css/images/pp_logo.jpeg');
+            background-size: cover;
+          }
+    </style>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper" style="margin-top: 3%;">
       <div class="title">Register Form</div>
-      <form action="registeration.php" method="post">
+      <form action="Registration.php" method="post">
         <div class="field">
           <input type="text" name="full_name" required>
           <label>Name</label>

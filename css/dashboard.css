@@ -34,7 +34,7 @@
 }
 .wrapper .menu-btn i{
   position: absolute;
-  transform: ;
+  /* transform: ; */
   font-size: 23px;
   transition: all 0.3s ease;
 }
@@ -175,6 +175,9 @@
     width: 100%;
     text-align: center;
 }
+
+/* ------------------------------------------HORIZONTAL NAV BAR -----------------------------------------*/
+
 
 .wrapper1{ 
     margin: 0 auto;
@@ -583,6 +586,18 @@ form .signup-link a:hover{
   border-bottom: 0px;
 }
 
+/* ---------------------------------------DASHBOARD ELEMENTS --------------------------------------*/
+
+.dash{
+  position: absolute;
+  top: 70px;
+  left: 295px;
+  width: 75%;
+  height: 85%;
+  background-color: #f0eeea;
+  border-radius: 10px;
+}
+
 /* -----------------------------------------MOBILE VIEW --------------------------------------*/
 
 @media screen and (min-width: 1025px){
@@ -608,6 +623,15 @@ form .signup-link a:hover{
 
 }
 
+@media screen and (max-width: 1025px){
+  .dash{
+    left: 4%;
+    top: 65px;
+    width: 92%;
+    height: 90%;
+  }
+}
+
 @media screen and (max-width: 768px){
   .wrapper1{
     width: 80%;
@@ -628,6 +652,7 @@ form .signup-link a:hover{
     left: 10px;
     top: 5px;
   }
+
 
 }
 
