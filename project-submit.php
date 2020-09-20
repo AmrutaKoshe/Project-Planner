@@ -21,9 +21,12 @@
     $num = mysqli_num_rows($result);
 
 	if($num == 1){
+		$_SESSION['error'] = "Project name already exists";
+		header('location:project-form.php');
 	}else{
         $result = "insert into project_table(id,pname, ppass) values(NULL,'$pname', '$ppass')";
         mysqli_query($conn, $result);
+        $_SESSION['Project'] = $pname;
 		// $_SESSION['message']="Success";
 		header('location:entries.php');
 	}

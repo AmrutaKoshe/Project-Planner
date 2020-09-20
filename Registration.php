@@ -21,6 +21,7 @@ if($num == 1){
 }else{
 	$reg = "insert into user_table(name, uname, upass) values('$name', '$user' , '$pass')";
 	mysqli_query($con, $reg);
+	$_SESSION['login_user'] = $user;
 	// echo "registraion successful";
 	header('location:newProject.php');
 }

@@ -1,12 +1,14 @@
 <?php
+
 session_start();
 session_destroy();
-?>
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Project Planner | Logout</title>
+    <link rel="icon" type="img/png" href="css/images/pp.png">
 	<style type="text/css">
 		body{
 			background-color: #eff2f8;

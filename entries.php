@@ -1,9 +1,15 @@
+<?php
+  include('session.php');
+  include('project_session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
+    <link rel="icon" type="img/png" href="css/images/pp.png">
     <link rel="stylesheet" href="css/dashboard.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style type="text/css">
@@ -74,9 +80,9 @@
         <i class="fas fa-times"></i>
       </label>
       <nav id="sidebar">
-        <div class="title">Side Menu</div>
+        <div class="title"><img src="css/images/pp.png" style="width: 10%; margin-top: 7%;">Project Planner</div>
         <ul class="list-items">
-        <li><a href="newProject.php">HOME</a></li>
+        <li><a href="newProject.php"><?php echo($_SESSION['project']) ?></a></li>
 <li><a href="logout.php">LOGOUT</a></li>
         </ul>
       </nav>

@@ -1,9 +1,14 @@
+<?php
+  include('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
+    <link rel="icon" type="img/png" href="css/images/pp.png">
     <link rel="stylesheet" href="css/dashboard.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 

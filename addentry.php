@@ -12,5 +12,4 @@ $reg = "insert into addentry(insertentry) values('$myentry')";
 mysqli_query($con, $reg);
 // echo "registraion successful";
 header('location:entries.php');
-
 ?>

@@ -1,17 +1,18 @@
 <?php
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysql_connect("localhost", "root", "root");
-// Selecting Database
-$db = mysql_select_db("pro_plan", $connection);
-session_start();// Starting Session
-// Storing Session
-$user_check=$_SESSION['login_user'];
-// SQL Query To Fetch Complete Information Of User
-$ses_sql=mysql_query("select uname from login where uname='$user_check'", $connection);
-$row = mysql_fetch_assoc($ses_sql);
-$login_session =$row['uname'];
-if(!isset($login_session)){
-mysql_close($connection); // Closing Connection
-header('Location: login.php'); // Redirecting To Home Page
-}
+   $db = mysqli_connect(localhost,root,root,project_planner);
+
+   session_start();
+   
+   $user_check = $_SESSION['login_user'];
+   
+   $ses_sql = mysqli_query($db,"select uname from user_table where uname = '$user_check' ");
+   
+   $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
+   
+   $login_session = $row['uname'];
+   
+   if(!isset($_SESSION['login_user'])){
+      header("location:login.php");
+      die();
+   }
 ?>

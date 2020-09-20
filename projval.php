@@ -17,12 +17,12 @@ $result = mysqli_query($conn, $query);
 
 $num = mysqli_num_rows($result);
 
-if($num >= 1){
-	$_SESSION['username'] = $name;
+if($num == 1){
+	$_SESSION['project'] = $pname;
 	header('location:entries.php');
 }else{
 	// alert("Try again");
-	header('location:home.php');
+	header('location:newProject.php');
 }
 
 ?>
