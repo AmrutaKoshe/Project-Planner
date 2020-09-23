@@ -28,7 +28,7 @@
 <a href="#">Forgot password?</a></div>
 </div> -->
         <div class="field" id="log"><input type="submit" value="LOGIN"></div>
-        <div class="signup-link">Not a member? <a href="../Register.php">Signup now</a></div>
+        <div class="signup-link">Not a member? <a href="../index.php">Signup now</a></div>
     </form>
     </div>
 </body>
