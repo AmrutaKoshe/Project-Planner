@@ -1,0 +1,14 @@
+{
+	"name":"composer",
+	"description":"project planner",
+	"author":{
+		"name":"Nikita Sarode",
+		"email":"sarodenikita24@gmail.com"
+	},
+	"require":{
+		"php":"^7.2.0"
+	},
+	"require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  }
+}
