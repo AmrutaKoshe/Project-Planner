@@ -18,7 +18,7 @@
   <body>
     <div class="wrapper" style="margin-top: 3%;">
       <div class="title">Register Form</div>
-      <form action="Registration.php" method="post">
+      <form action="folder/Registration.php" method="post">
         <div class="field">
           <input type="text" name="full_name" required>
           <label>Name</label>

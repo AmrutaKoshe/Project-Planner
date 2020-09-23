@@ -4,8 +4,8 @@
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Planner | Login</title>
-    <link rel="icon" type="img/png" href="css/images/pp.png">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" type="img/png" href="../css/images/pp.png">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <div class="wrapper">
@@ -28,7 +28,7 @@
 <a href="#">Forgot password?</a></div>
 </div> -->
         <div class="field" id="log"><input type="submit" value="LOGIN"></div>
-        <div class="signup-link">Not a member? <a href="Register.php">Signup now</a></div>
+        <div class="signup-link">Not a member? <a href="../Register.php">Signup now</a></div>
     </form>
     </div>
 </body>

@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	    header('location: newProject.php');
 	}else{
 	// alert("Try again");
-		header('location:home.php');
+		header('location:login.php');
 	}
 }
 
