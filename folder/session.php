@@ -1,5 +1,5 @@
 <?php
-   $db = mysqli_connect(localhost,root,root,project_planner);
+   $db = mysqli_connect('localhost','root','','project_planner');
 
    session_start();
    

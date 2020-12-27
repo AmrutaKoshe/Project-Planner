@@ -2,7 +2,7 @@
 
 session_start();
 
-$conn = mysqli_connect('localhost','root','root');
+$conn = mysqli_connect('localhost','root','');
 // (server_name,username,password)
 mysqli_select_db($conn, 'project_planner');
 // connection to the database Project_Planner 

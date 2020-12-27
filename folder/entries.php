@@ -1,6 +1,5 @@
 <?php
   include('session.php');
-  include('project_session.php');
 ?>
 
 <!DOCTYPE html>
@@ -12,65 +11,7 @@
     <link rel="icon" type="img/png" href="../css/images/pp.png">
     <link rel="stylesheet" href="../css/dashboard.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <style type="text/css">
-      button{
-        width: 34.2%;
-        height: 3.1rem; 
-        border: none; 
-        font-size: 22px;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-      }
-    .active{
-        background: #5baed4;
-        color: #ffffff;
-      }
-      a{
-        text-decoration: none; 
-        color: #000000;
-      }
-      button:hover{
-        transition: 0.4s;
-        background: #5baed4;
-      }
-      a:hover{
-        color: #ffffff;
-      }
-
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        color: #3c6992;
-        font-family: monospace;
-        font-size: 25px;
-        text-align: left;
-        }
-        th {
-        background-color: #3c6992;
-        color: white;
-        }
-        tr:nth-child(even) {background-color: #f2f2f2}
-
-
-        .addBtn input{
-          padding: 5px;
-          width: 15%;
-          background: #d9d9d9;
-          color: #555;
-          float: left;
-          text-align: center;
-          font-size: 16px;
-          cursor: pointer;
-          transition: 0.3s;
-          border-radius: 0;
-        }
-
-        .addBtn input:hover {
-          background-color: #0d4777;
-          color: white;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/list.css">
   </head>
   <body>
     <div class="wrapper">
@@ -80,10 +21,10 @@
         <i class="fas fa-times"></i>
       </label>
       <nav id="sidebar">
-        <div class="title"><img src="css/images/pp.png" style="width: 10%; margin-top: 7%;">Project Planner</div>
+        <div class="title">Side Menu</div>
         <ul class="list-items">
-        <li><a href="newProject.php"><?php echo($_SESSION['project']) ?></a></li>
-<li><a href="logout.php">LOGOUT</a></li>
+          <li><a href="newProject.php">HOME</a></li>
+          <li><a href="logout.php">LOGOUT</a></li>
         </ul>
       </nav>
     </div>
@@ -92,9 +33,9 @@
       <p>
       <div class="wrapper1">
                     <nav>
-                      <button class="active"><a href="" class="active">Entries</a></button>
-                      <button ><a href="members.php">Tasks</a></button>
-                      <button ><a href="lists.php">To do List</a></button>
+                      <button><a href="to-do.php">To do List</a></button>
+                      <button ><a href="tasks.php">Tasks</a></button>
+                      <button class="active" ><a href="" class="active">Entries</a></button>
                       <!-- <input type="radio" name="tab" id="home" checked>
                       <input type="radio" name="tab" id="inbox">
                       <input type="radio" name="tab" id="contact">
@@ -112,23 +53,15 @@
 
       </div>
 
-     <div class="dash">
+     <div class="dash" >
 
-     
-     <form action="addentry.php" method="post">
-            <input style="border: 1px solid gray; height: 60px; width: 100%" type="text" name="myentry" placeholder="Add entry...">
+        <form action="addlist.php" method="post">
+            <input style="border: 1px solid gray;" type="text" name="mylist" placeholder="Title...">
             <div class="addBtn"><input type="submit" value="ADD"></div>
         </form>
-
-        <!-- <form action="addentry.php" method="post">
-            <input style="" class="assigntask" type="text" placeholder="Enter Task" name="task" required><br>
-            <div class="task" id="log"><input type="submit" value="ASSIGN TASK"></div>
-        </form> -->
-
-
-        <table style="margin-top: 7%;">
+        
+     <table style="margin-top: 7%;">
             <tr>
-            <!-- <th>Task</th> -->
             </tr>
             <?php
             $conn = mysqli_connect("localhost", "root","root");
@@ -139,13 +72,13 @@
             die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT insertentry FROM addentry";
+            $sql = "SELECT list FROM todolist";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
             // output data of each row
             while($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row["insertentry"].  "</td></tr>";
+            echo "<tr><td>" ."->  ". $row["list"]. "</td></tr>";
             }
             echo "</table>";
             } else { echo "0 results"; }
