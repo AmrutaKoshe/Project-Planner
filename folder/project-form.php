@@ -1,5 +1,32 @@
 <?php
+
   include('session.php');
+
+  if (isset($_POST['submit'])) {
+    
+    include "connect.php";
+  
+    $pname = $_POST['pname'];
+    $ppass = $_POST['ppass'];
+
+    $s = "select * from project_table where pname = '$pname'";
+
+    $result = mysqli_query($conn, $s);
+
+    $num = mysqli_num_rows($result);
+
+    if($num == 1){
+      $_SESSION['error'] = "Project name already exists";
+      header('location:project-form.php');
+    }else{
+          $result = "insert into project_table(id,pname, ppass) values(NULL,'$pname', '$ppass')";
+          mysqli_query($conn, $result);
+          $_SESSION['Project'] = $pname;
+      // $_SESSION['message']="Success";
+      header('location:entries.php');
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -27,15 +54,8 @@
         </ul>
       </nav>
     </div>
-    <div>
-      <p style="padding: 10px; text-align: center; padding-top: 10%;"><?php
-        if(isset($_SESSION['error'])){
-          echo($_SESSION['error']);
-        }
-      ?></p>
-    </div>
     <div class="projCreate">
-      <form action="project-submit.php" method="post">
+      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="fieldp">
           <input type="text" name="pname" required>
           <label>Project Name</label>
@@ -43,6 +63,13 @@
         <div class="fieldp">
           <input type="password" name="ppass" required>
           <label>Project Password</label>
+        </div>
+        <div>
+          <p style="padding: 10px; text-align: center; padding-top: 10%;"><?php
+            if(isset($_SESSION['error'])){
+              echo($_SESSION['error']);
+            }
+          ?></p>
         </div>
 <!-- <div class="content">
           <div class="checkbox">
@@ -53,7 +80,7 @@
 <a href="#">Forgot password?</a></div>
 </div> -->
         <div class="fieldp" id="log">
-          <input type="submit" value="CREATE">
+          <input type="submit" name="submit" value="CREATE">
         </div>
 <!-- <div class="signup-link">
 Not a member? <a href="#">Signup now</a></div> -->
