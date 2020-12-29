@@ -29,7 +29,7 @@
         if($num == 1){
           echo "<script>alert('Entry exists');</script>";
           header("HTTP/1.1 303 See Other");
-          header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/entries.php");
+          header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/to-do.php");
         }else{
           $insert_entry = mysqli_query($conn, "INSERT INTO entries VALUES('$pid','$mid','$myentry')");
           if (!$insert_entry) {
@@ -37,7 +37,7 @@
           }else{
             echo "<script>alert('Entry added successfully');</script>";
             header("HTTP/1.1 303 See Other");
-            header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/entries.php");
+            header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/to-do.php");
           } 
         }
       }
@@ -55,6 +55,14 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/entries.css">
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <style type="text/css">
+      .entry{
+       margin: 0px 100px 0px 50px;
+      }
+      input[type=checkbox]:checked + span{
+        text-decoration: line-through;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -152,16 +160,48 @@
                 // output data of each row
                 echo "<table>";
                 while($row = $result->fetch_assoc()) {
-                  echo "<tr><td>" . $row["insertentry"].  "</td></tr>";
+                  ?>
+                  <form action="<?php $_SERVER['PHP_SELF']; ?>" method='post'>
+                  <?php
+                    echo "<input type='checkbox' value='".$row["insertentry"]."' name='techno[]' class='entry'";
+                    if ($row['checked']) echo "checked='checked'";
+                    echo">" . "<span>" . $row["insertentry"]."</span><br>";
                 }
+                echo "<input type='submit' name='sub' value='update'></form>";
               }
               $conn->close();
             }
             ?>
         </table>
-
      </div>
 </p>
 </div>
+<form>
+    <?php
+
+      if (isset($_POST['sub'])) {
+        include "connect.php";
+        // $todo = $_POST['all'];
+        $pid = $_SESSION['project_id'];
+        $checkbox1=$_POST['techno'];  
+        $chk = "";
+        foreach ($checkbox1 as $chk1) {
+          $chk = $chk1;
+          mysqli_query($conn, "UPDATE entries SET checked='1' where pid = '$pid' and insertentry = '$chk'");
+        }
+            header("HTTP/1.1 303 See Other");
+            header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/to-do.php");
+      }
+
+    ?>
+<script>
+  // function myfun(){
+  //   var check = document.getElementById("entry");
+  //   if (check.checked) {
+  //     document.getElementsByClass("entry").style.textDecoration = "line-through";
+  //   }
+  // }
+</script>
+
 </body>
 </html>
