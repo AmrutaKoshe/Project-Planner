@@ -10,7 +10,7 @@
     <title>Dashboard | Project Planner</title>
     <link rel="icon" type="img/png" href="../css/images/pp.png">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
   </head>
   <body>
     <!-- top right logout button -->

@@ -1,29 +1,41 @@
 <?php
 
   include('session.php');
-
   if (isset($_POST['submit'])) {
-    
+
     include "connect.php";
-  
-    $pname = $_POST['pname'];
+
+    $pname = trim($_POST['pname']);
     $ppass = $_POST['ppass'];
+    $login_user = $_SESSION['login_user'];
 
-    $s = "select * from project_table where pname = '$pname'";
+    // check if project exists
+    $pro_check = mysqli_query($conn, "SELECT * from project_table where pname = '$pname'");
 
-    $result = mysqli_query($conn, $s);
-
-    $num = mysqli_num_rows($result);
-
-    if($num == 1){
+    if(mysqli_num_rows($pro_check) == 1){
       $_SESSION['error'] = "Project name already exists";
       header('location:project-form.php');
     }else{
-          $result = "insert into project_table(id,pname, ppass) values(NULL,'$pname', '$ppass')";
-          mysqli_query($conn, $result);
-          $_SESSION['Project'] = $pname;
-      // $_SESSION['message']="Success";
-      header('location:entries.php');
+      $result = mysqli_query($conn, "insert into project_table(id,pname, ppass) values(NULL,'$pname', '$ppass')");
+      if (!$result) {
+        echo "errorrrrrrrrrrrrr";
+      }else{
+        $_SESSION['project'] = $pname;
+
+        while ($row = mysqli_fetch_array($pro_check)) {
+          $project_id = $row['id'];
+        }
+        $_SESSION['project_id'] = $project_id;
+
+        // adding member to the member_table after opening a project
+          $result1 = mysqli_query($conn, "INSERT INTO member_table VALUES ('$project_id', '$login_user')");
+
+          if (!$result1) {
+            echo "errorrrrrrrrrrrrr";
+          }else{
+            header('location:to-do.php');
+          }
+      }
     }
   }
 
@@ -37,7 +49,7 @@
     <title>Dashboard | Project Planner</title>
     <link rel="icon" type="img/png" href="../css/images/pp.png">
     <link rel="stylesheet" href="../css/dashboard.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
   </head>
   <body>
     <div class="wrapper">
