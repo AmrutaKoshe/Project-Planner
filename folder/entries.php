@@ -35,7 +35,7 @@
       <p>
       <div class="wrapper1">
                     <nav>
-                      <button><a href="to-do.php">To do List</a></button>
+                      <button><a id="to" href="to-do.php">To do List</a></button>
                       <button ><a href="tasks.php">Tasks</a></button>
                       <button class="active" ><a href="" class="active">Entries</a></button>
                       <!-- <input type="radio" name="tab" id="home" checked>
@@ -59,7 +59,7 @@
 
       <!-- insert hereeee -->
         
-     <table style="margin-top: 7%;">
+     <table style="margin-top: 2%;">
             <tr>
             </tr>
             <?php
@@ -85,5 +85,11 @@
      </div>
 </p>
 </div>
+<script>
+  const mq = window.matchMedia( "(max-width: 768px)" );
+  if (mq.matches) {
+    document.getElementById("to").text = "To do";
+  }
+</script>
 </body>
 </html>

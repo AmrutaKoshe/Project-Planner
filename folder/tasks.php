@@ -17,13 +17,6 @@
         $member = $_POST['member'];
         $pid = $_SESSION['project_id'];
         $uname = $_SESSION['login_user'];
-        $member = $_POST['member'];
-
-        // fetching member id
-        $result = mysqli_query($conn, "SELECT * FROM user_table WHERE uname = '$member'");
-        while ($row = mysqli_fetch_array($result)) {
-          $mid = $row['id'];
-        }
 
         echo $pid.$mid.$task;
 
@@ -32,15 +25,15 @@
         if($num == 1){
           echo "<script>alert('Task exists');</script>";
           header("HTTP/1.1 303 See Other");
-          header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/members.php");
+          header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/tasks.php");
         }else{
-          $insert_task = mysqli_query($conn, "INSERT INTO member_task VALUES('$pid','$mid','$task')");
+          $insert_task = mysqli_query($conn, "INSERT INTO member_task VALUES('$pid','$member','$task')");
           if (!$insert_task) {
             echo "Try again";
           }else{
             echo "<script>alert('Task added successfully');</script>";
             header("HTTP/1.1 303 See Other");
-            header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/members.php");
+            header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/tasks.php");
           } 
         }
       }
@@ -63,6 +56,9 @@
         width: 40%;
         height: 45px;
         font-size: 13.3333px;
+      }
+      #sidebar{
+        z-index: 1;
       }
     </style>
   </head>
@@ -111,7 +107,7 @@
       <p>
       <div class="wrapper1">
                     <nav>
-                      <button><a href="to-do.php">To do list</a></button>
+                      <button><a id="to" href="to-do.php">To do list</a></button>
                       <button class="active"><a href="" class="active">Tasks</a></button>
                       <button ><a href="entries.php">Entries</a></button>
                     </nav>
@@ -131,14 +127,14 @@
                 die("Connection failed: " . $conn->connect_error);
               }else{
                 $pid = $_SESSION['project_id'];
-                $result = mysqli_query($conn, "SELECT * FROM member_task t, member_table m WHERE m.pid = t.pid and t.pid = '$pid'");
+                $result = mysqli_query($conn, "SELECT * FROM member_task where pid = '$pid'");
 
                 if (!$result) {
                   echo "0 results";
                 } else { 
                   // output data of each row
                   while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>" . $row["mtask"]. "</td><td>" . $row["member"] . "</td></tr>";
+                    echo "<tr><td>" . $row["mtask"]. "</td><td>" . $row["mid"] . "</td></tr>";
                   }
                   echo "</table>";
                 }
@@ -170,5 +166,11 @@
      </div>
 </p>
 </div>
+<script>
+  const mq = window.matchMedia( "(max-width: 768px)" );
+  if (mq.matches) {
+    document.getElementById("to").text = "To do";
+  }
+</script>
 </body>
 </html>

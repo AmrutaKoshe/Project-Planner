@@ -68,7 +68,7 @@
     <link rel="icon" type="img/png" href="../css/images/pp.png">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/entries.css">
-    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style type="text/css">
       .entry{
         margin-left: 50px;
@@ -88,7 +88,7 @@
       input[type=text]{
         border: 1px solid gray; 
         height: 60px; 
-        width: 100%; 
+        width: 84.5%; 
         padding: 10px; 
         font-size: 20px
       }
@@ -108,6 +108,9 @@
       input[type=submit]:hover {
         background-color: #0d4777;
         color: white;
+      }
+      #sidebar{
+        z-index: 1;
       }
     </style>
   </head>
@@ -156,7 +159,7 @@
       <p>
       <div class="wrapper1">
                     <nav>
-                      <button class="active"><a href="" class="active">To do list</a></button>
+                      <button class="active"><a id="to" href="" class="active">To do list</a></button>
                       <button ><a href="tasks.php">Tasks</a></button>
                       <button ><a href="entries.php">Entries</a></button>
                       <!-- <input type="radio" name="tab" id="home" checked>
@@ -181,11 +184,11 @@
      
      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
             <input type="text" name="myentry" placeholder="Add entry...">
-            <div class="addBtn"><input type="submit" name="add" value="ADD"></div>
+            <div class="addBtn"><input type="submit" name="add" value="ADD" style="margin-top:-60px"></div>
       </form>
 
       <!-- displaying entries -->
-        <table style="margin-top: 7%;">
+        <table style="margin-top: 2%;">
             <tr>
             <!-- <th>Tasks</th> -->
             </tr>
@@ -224,5 +227,12 @@
      </div>
 </p>
 </div>
+
+<script>
+  const mq = window.matchMedia( "(max-width: 768px)" );
+  if (mq.matches) {
+    document.getElementById("to").text = "To do";
+  }
+</script>
 </body>
 </html>
