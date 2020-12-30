@@ -11,7 +11,9 @@
     <link rel="icon" type="img/png" href="../css/images/pp.png">
     <link rel="stylesheet" href="../css/dashboard.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/list.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="../css/entries.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/list.css"> -->
   </head>
   <body>
     <div class="wrapper">
@@ -64,9 +66,14 @@
             <tr>
             </tr>
             <?php
-            $conn = mysqli_connect("localhost", "root","root");
+            // $conn = mysqli_connect("localhost"," ","root");
+
+            include "connect.php";
+
+            $pid = $_SESSION['project_id'];
+
             // Check connection
-            mysqli_select_db($conn, 'project_planner');
+            // mysqli_select_db($conn, 'project_planner');
 
             if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
