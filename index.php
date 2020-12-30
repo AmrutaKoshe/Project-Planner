@@ -35,6 +35,7 @@ if(isset($_POST['submit'])){
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Planner</title>
+    <script type="text/javascript" src="folder/validations.js"></script>
     <link rel="icon" type="img/png" href="css/images/pp.png">
     <link rel="stylesheet" href="css/Register.css">
 
@@ -49,7 +50,7 @@ if(isset($_POST['submit'])){
   <body>
     <div class="wrapper" style="margin-top: 3%;">
       <div class="title">Register Form</div>
-      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="register" onsubmit="return validateform()">
         <div class="field">
           <input type="text" name="full_name" required>
           <label>Name</label>

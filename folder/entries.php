@@ -61,7 +61,29 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/entries.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/list.css"> -->
+
+    <style type="text/css">
+      input[type=submit]{
+        float: right;
+        width: 15%;
+        background: #d9d9d9;
+        color: #555;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 0;
+        height: 60px;
+        margin: 5px;
+      }
+      input[type=submit]:hover {
+        background-color: #0d4777;
+        color: white;
+      }
+      #sidebar{
+        z-index: 1;
+      }
+    </style>
     
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
 
@@ -77,6 +99,31 @@
         <div class="title">Project Planner</div>
         <ul class="list-items">
           <li><a href="newProject.php">HOME</a></li>
+              <?php
+                include "connect.php";
+
+                $uname = $_SESSION['login_user'];
+
+                if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+                }else{
+                  $result = mysqli_query($conn, "SELECT p.pname FROM project_table p,member_table m where p.id = m.pid and member = '$uname'");
+
+                  if (!$result) {
+                      echo "<li><a href='newProject.php'>Select Project</a></li>";
+                  } else { 
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                      if ($row["pname"] == $_SESSION['project']) {
+                        echo "<li class='tabs_active'><a href=''>".$row["pname"]."</a></li>";
+                      }else{
+                        echo "<li><a href='searchProject.php'>".$row["pname"]."</a></li>";
+                      }
+                    }
+                  }
+                  $conn->close();
+                }
+                ?>
           <li><a href="logout.php">LOGOUT</a></li>
         </ul>
       </nav>
@@ -89,19 +136,6 @@
                       <button><a id="to" href="to-do.php">To do List</a></button>
                       <button ><a href="tasks.php">Tasks</a></button>
                       <button class="active" ><a href="" class="active">Entries</a></button>
-                      <!-- <input type="radio" name="tab" id="home" checked>
-                      <input type="radio" name="tab" id="inbox">
-                      <input type="radio" name="tab" id="contact">
-                      <input type="radio" name="tab" id="Heart">
-                      <input type="radio" name="tab" id="About">
-                      <button for="home" class="home" style="width: 100%; height: auto;"><label>Entries</label></button> -->
-
-                      <!-- <label for="home" class="home"><a href="home.php">Entries</a></label>
-                      <label for="inbox" class="inbox"><a href="dashboardEntries.html"><i class="fas fa-user-friends"></i>Members</a></label>
-                      <label for="contact" class="contact"><a href="#"><i class="fas fa-tasks"></i>To-do List</a></label> -->
-                      <!-- <label for="heart" class="heart"><a href="#"><i class="far fa-heart"></i>Heart</a></label>
-                      <label for="about" class="about"><a href="#"><i class="far fa-user"></i>About</a></label> -->
-                      <!-- <div class="tab"></div> -->
                     </nav>
 
       </div>
@@ -122,15 +156,15 @@
                       $pid = $_SESSION['project_id'];
                       $uname = $_SESSION['login_user'];
                   
-                  $result = mysqli_query($conn, "SELECT * FROM entry where pid = '$pid'");
-                  $num = mysqli_num_rows($result);
-                  if($num == 1){
-                  $row = mysqli_fetch_array($result);
-                  echo $row['content'];
-                  }
-                  else{
-                    echo "&lt;h1&gt;Enter your text...&lt;/h1&gt";
-                  }
+                      $result = mysqli_query($conn, "SELECT * FROM entry where pid = '$pid'");
+                      $num = mysqli_num_rows($result);
+                      if($num == 1){
+                      $row = mysqli_fetch_array($result);
+                      echo $row['content'];
+                      }
+                      else{
+                        echo "&lt;h1&gt;Enter your text...&lt;/h1&gt";
+                      }
                     }
                   
                   ?>
@@ -143,30 +177,6 @@
               
           </div>
       </form>
-        
-     <table style="margin-top: 2%;">
-            <tr>
-            </tr>
-            <?php
-            // $conn = mysqli_connect("localhost"," ","root");
-
-            include "connect.php";
-
-            $pid = $_SESSION['project_id'];
-
-            // Check connection
-            // mysqli_select_db($conn, 'project_planner');
-
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-
-            // insert here
-  
-            $conn->close();
-            ?>
-        </table>
-
      </div>
 </p>
 </div>

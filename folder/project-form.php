@@ -22,7 +22,8 @@
       }else{
         $_SESSION['project'] = $pname;
 
-        while ($row = mysqli_fetch_array($pro_check)) {
+        $pro_check1 = mysqli_query($conn, "SELECT * from project_table where pname = '$pname'");
+        while ($row = mysqli_fetch_array($pro_check1)) {
           $project_id = $row['id'];
         }
         $_SESSION['project_id'] = $project_id;
@@ -47,6 +48,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
+    <script type="text/javascript" src="validations.js"></script>
     <link rel="icon" type="img/png" href="../css/images/pp.png">
     <link rel="stylesheet" href="../css/dashboard.css">
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
@@ -88,7 +90,7 @@
       </nav>
     </div>
     <div class="projCreate">
-      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
+      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="pro" onsubmit="return validateform()">
         <div class="fieldp">
           <input type="text" name="pname" required>
           <label>Project Name</label>
@@ -120,5 +122,30 @@ Not a member? <a href="#">Signup now</a></div> -->
       </form>
 
 </div>
+
+<script type="text/javascript">
+  function validateform(){
+    var illegalChars = /^((?=.*[\W])(?=.*[!@#$%^&*]))$/; 
+    var proname = document.forms["pro"]["pname"].value;
+    var propass = document.forms["pro"]["ppass"].value;
+
+    proname = proname.trim();
+    if (proname.length < 3) {
+      alert("Project Name must contain more than 3 characters");
+      return false;
+    }
+
+    propass = propass.trim();
+    if (propass.trim < 6) {
+      alert("Project password must contain more than 6 characters");
+      return false;
+    }
+
+    if ((propass.search(/[a-z]+/)==-1) || (propass.search(/[0-9]+/)==-1) || (propass.search(/[A-Z]+/)==-1)) {
+      alert("Project password must contain atleast one numeral, one Capital and one small letter.");
+      return false;
+    }
+  }
+</script>
 </body>
 </html>
