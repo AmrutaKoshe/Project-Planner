@@ -227,7 +227,6 @@
      </div>
 </p>
 </div>
-
 <script>
   const mq = window.matchMedia( "(max-width: 768px)" );
   if (mq.matches) {
