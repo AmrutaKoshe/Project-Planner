@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2020 at 09:10 AM
+-- Generation Time: Dec 30, 2020 at 07:38 PM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,12 +39,30 @@ CREATE TABLE `entries` (
 --
 
 INSERT INTO `entries` (`pid`, `mid`, `insertentry`, `checked`) VALUES
-(7, 2, 'Add demo', 0),
-(7, 5, 'dance', 0),
+(7, 2, 'Add demo', 1),
+(7, 5, 'dance', 1),
 (8, 5, 'tada', 1),
 (8, 6, 'talk', 1),
 (8, 6, 'walk', 1),
 (17, 3, 'draw', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `entry`
+--
+
+CREATE TABLE `entry` (
+  `pid` int(30) NOT NULL,
+  `content` varchar(9000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `entry`
+--
+
+INSERT INTO `entry` (`pid`, `content`) VALUES
+(7, '<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px\">\r\n	<tbody>\r\n		<tr>\r\n			<td>ooooo</td>\r\n			<td>lllll</td>\r\n		</tr>\r\n		<tr>\r\n			<td>fyjffj</td>\r\n			<td>oof</td>\r\n		</tr>\r\n		<tr>\r\n			<td>accha</td>\r\n			<td>thikkay</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<h1>Project Planner dfdhdfh</h1>\r\n\r\n<blockquote>\r\n<p>Hi hello ssuppp .........How is life what is thiS bheaviour!]</p>\r\n</blockquote>\r\n\r\n<p><strong>Not accepted</strong></p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -71,7 +89,8 @@ INSERT INTO `member_table` (`pid`, `member`) VALUES
 (8, 'ams'),
 (8, 'nikam'),
 (0, 'neha'),
-(17, 'neha');
+(17, 'neha'),
+(7, 'nikam');
 
 -- --------------------------------------------------------
 
@@ -168,6 +187,12 @@ INSERT INTO `user_table` (`id`, `name`, `uname`, `upass`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `entry`
+--
+ALTER TABLE `entry`
+  ADD PRIMARY KEY (`pid`);
 
 --
 -- Indexes for table `member_task`
