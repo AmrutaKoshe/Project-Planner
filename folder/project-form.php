@@ -62,6 +62,27 @@
         <div class="title">Project Planner</div>
         <ul class="list-items">
         <li><a href="newProject.php">HOME</a></li>
+            <?php
+                include "connect.php";
+
+                $uname = $_SESSION['login_user'];
+
+                if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+                }else{
+                  $result = mysqli_query($conn, "SELECT p.pname FROM project_table p,member_table m where p.id = m.pid and member = '$uname'");
+
+                  if (!$result) {
+                      echo "<li><a href='newProject.php'>Select Project</a></li>";
+                  } else { 
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "<li><a href='searchProject.php'>".$row["pname"]."</a></li>";
+                    }
+                  }
+                  $conn->close();
+                }
+                ?>
         <li><a href="logout.php">LOGOUT</a></li>
         </ul>
       </nav>
