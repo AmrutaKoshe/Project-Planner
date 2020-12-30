@@ -29,19 +29,33 @@
         if($num == 1){
           echo "<script>alert('Entry exists');</script>";
           header("HTTP/1.1 303 See Other");
-          header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/to-do.php");
+          header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/to-do.php");
         }else{
-          $insert_entry = mysqli_query($conn, "INSERT INTO entries VALUES('$pid','$mid','$myentry')");
+          $insert_entry = mysqli_query($conn, "INSERT INTO entries VALUES('$pid','$mid','$myentry',0)");
           if (!$insert_entry) {
             echo "Try again";
           }else{
             echo "<script>alert('Entry added successfully');</script>";
             header("HTTP/1.1 303 See Other");
-            header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/to-do.php");
+            header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/to-do.php");
           } 
         }
       }
     }
+
+    if (isset($_POST['sub'])) {
+        include "connect.php";
+        // $todo = $_POST['all'];
+        $pid = $_SESSION['project_id'];
+        $checkbox1=$_POST['techno'];  
+        $chk = "";
+        foreach ($checkbox1 as $chk1) {
+          $chk = $chk1;
+          mysqli_query($conn, "UPDATE entries SET checked='1' where pid = '$pid' and insertentry = '$chk'");
+        }
+            header("HTTP/1.1 303 See Other");
+            header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/to-do.php");
+      }
 
  ?>  
 
@@ -57,10 +71,43 @@
     <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
     <style type="text/css">
       .entry{
-       margin: 0px 100px 0px 50px;
+        margin-left: 50px;
+        cursor: pointer;
+      }
+      .check{
+        padding-left: 50px;
+      }
+      .input-group{
+        padding: 20px;
+        margin: 10px;
+        background-color: #f6f6f6;
       }
       input[type=checkbox]:checked + span{
         text-decoration: line-through;
+      }
+      input[type=text]{
+        border: 1px solid gray; 
+        height: 60px; 
+        width: 100%; 
+        padding: 10px; 
+        font-size: 20px
+      }
+      input[type=submit]{
+        float: right;
+        width: 15%;
+        background: #d9d9d9;
+        color: #555;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 0;
+        height: 60px;
+        margin: 5px;
+      }
+      input[type=submit]:hover {
+        background-color: #0d4777;
+        color: white;
       }
     </style>
   </head>
@@ -91,9 +138,9 @@
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                       if ($row["pname"] == $_SESSION['project']) {
-                        echo "<li class='tabs_active'><a href='newProject.php'>".$row["pname"]."</a></li>";
+                        echo "<li class='tabs_active'><a href=''>".$row["pname"]."</a></li>";
                       }else{
-                        echo "<li><a href='newProject.php'>".$row["pname"]."</a></li>";
+                        echo "<li><a href='searchProject.php'>".$row["pname"]."</a></li>";
                       }
                     }
                   }
@@ -109,7 +156,7 @@
       <p>
       <div class="wrapper1">
                     <nav>
-                      <button class="active"><a href="" class="active">TO do list</a></button>
+                      <button class="active"><a href="" class="active">To do list</a></button>
                       <button ><a href="tasks.php">Tasks</a></button>
                       <button ><a href="lists.php">Entries</a></button>
                       <!-- <input type="radio" name="tab" id="home" checked>
@@ -133,7 +180,7 @@
 
      
      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-            <input style="border: 1px solid gray; height: 60px; width: 100%" type="text" name="myentry" placeholder="Add entry...">
+            <input type="text" name="myentry" placeholder="Add entry...">
             <div class="addBtn"><input type="submit" name="add" value="ADD"></div>
       </form>
 
@@ -163,9 +210,10 @@
                   ?>
                   <form action="<?php $_SERVER['PHP_SELF']; ?>" method='post'>
                   <?php
+                    echo "<div class='input-group'>";
                     echo "<input type='checkbox' value='".$row["insertentry"]."' name='techno[]' class='entry'";
                     if ($row['checked']) echo "checked='checked'";
-                    echo">" . "<span>" . $row["insertentry"]."</span><br>";
+                    echo">" . "<span class='check'>" . $row["insertentry"]."</span></div>";
                 }
                 echo "<input type='submit' name='sub' value='update'></form>";
               }
@@ -176,32 +224,5 @@
      </div>
 </p>
 </div>
-<form>
-    <?php
-
-      if (isset($_POST['sub'])) {
-        include "connect.php";
-        // $todo = $_POST['all'];
-        $pid = $_SESSION['project_id'];
-        $checkbox1=$_POST['techno'];  
-        $chk = "";
-        foreach ($checkbox1 as $chk1) {
-          $chk = $chk1;
-          mysqli_query($conn, "UPDATE entries SET checked='1' where pid = '$pid' and insertentry = '$chk'");
-        }
-            header("HTTP/1.1 303 See Other");
-            header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/to-do.php");
-      }
-
-    ?>
-<script>
-  // function myfun(){
-  //   var check = document.getElementById("entry");
-  //   if (check.checked) {
-  //     document.getElementsByClass("entry").style.textDecoration = "line-through";
-  //   }
-  // }
-</script>
-
 </body>
 </html>

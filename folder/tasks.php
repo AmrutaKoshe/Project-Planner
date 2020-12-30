@@ -32,7 +32,7 @@
         if($num == 1){
           echo "<script>alert('Task exists');</script>";
           header("HTTP/1.1 303 See Other");
-          header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/members.php");
+          header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/members.php");
         }else{
           $insert_task = mysqli_query($conn, "INSERT INTO member_task VALUES('$pid','$mid','$task')");
           if (!$insert_task) {
@@ -40,7 +40,7 @@
           }else{
             echo "<script>alert('Task added successfully');</script>";
             header("HTTP/1.1 303 See Other");
-            header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/members.php");
+            header("location: http://$_SERVER[HTTP_HOST]/project-planner/folder/members.php");
           } 
         }
       }
@@ -58,6 +58,13 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/entries.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style type="text/css">
+      input[type=text]{
+        width: 40%;
+        height: 45px;
+        font-size: 13.3333px;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
