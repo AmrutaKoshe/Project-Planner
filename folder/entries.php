@@ -1,6 +1,54 @@
 <?php
   include('session.php');
+  include('project_session.php');
 ?>
+
+<?php
+
+    if (isset($_POST['submit'])) {
+
+      include "connect.php";
+
+      if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+      }else{
+
+        $content = $_POST['content'];
+        $pid = $_SESSION['project_id'];
+        $uname = $_SESSION['login_user'];
+
+        // fetching member id
+        // $result = mysqli_query($conn, "SELECT * FROM entry where pid = '$pid'");
+        // while ($row = mysqli_fetch_array($result)) {
+        //   $mid = $row['id'];
+        // }
+
+        $entery_check = mysqli_query($conn, "SELECT * FROM entry WHERE pid = '$pid'");
+        $num = mysqli_num_rows($entery_check);
+        if($num == 1){
+          $insert_entry = mysqli_query($conn, "UPDATE entry SET content = '$content'");
+          if (!$insert_entry) {
+            echo "Try again";
+          }else{
+            echo "<script>alert('Entry added successfully');</script>";
+            header("HTTP/1.1 303 See Other");
+            header("location: http://$_SERVER[HTTP_HOST]/Project-Planner/folder/entries.php");
+          } 
+
+        }else{
+          $insert_entry = mysqli_query($conn, "INSERT INTO entry VALUES('$pid','$content')");
+          if (!$insert_entry) {
+            echo "Try again";
+          }else{
+            echo "<script>alert('Entry added successfully');</script>";
+            header("HTTP/1.1 303 See Other");
+            header("location: http://$_SERVER[HTTP_HOST]/Project-Planner/folder/entries.php");
+          } 
+        }
+      }
+    }
+
+ ?>  
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -14,6 +62,9 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" type="text/css" href="../css/entries.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/list.css"> -->
+    
+    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+
   </head>
   <body>
     <div class="wrapper">
@@ -58,6 +109,34 @@
      <div class="dash" >
 
       <!-- insert hereeee -->
+      <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
+          <div>
+              <textarea cols="250" rows="50" id="content" name="content"> 
+                  <?php 
+                    include "connect.php";
+
+                    if ($conn->connect_error) {
+                          die("Connection failed: " . $conn->connect_error);
+                    }else{
+              
+                      $pid = $_SESSION['project_id'];
+                      $uname = $_SESSION['login_user'];
+                  
+                  $result = mysqli_query($conn, "SELECT * FROM entry where pid = '$pid'");
+                  $row = mysqli_fetch_array($result);
+                  echo $row['content'];
+                    }
+                  
+                  ?>
+              </textarea>
+              <script type="text/javascript">
+                CKEDITOR.replace( 'content' );
+              </script>
+              <input type="submit" value="Submit" name="submit"/>
+              
+              
+          </div>
+      </form>
         
      <table style="margin-top: 7%;">
             <tr>
