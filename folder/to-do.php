@@ -158,7 +158,7 @@
                     <nav>
                       <button class="active"><a href="" class="active">To do list</a></button>
                       <button ><a href="tasks.php">Tasks</a></button>
-                      <button ><a href="lists.php">Entries</a></button>
+                      <button ><a href="entries.php">Entries</a></button>
                       <!-- <input type="radio" name="tab" id="home" checked>
                       <input type="radio" name="tab" id="inbox">
                       <input type="radio" name="tab" id="contact">
