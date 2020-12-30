@@ -190,7 +190,7 @@
           mysqli_query($conn, "UPDATE entries SET checked='1' where pid = '$pid' and insertentry = '$chk'");
         }
             header("HTTP/1.1 303 See Other");
-            header("location: http://$_SERVER[HTTP_HOST]/an-project-planner/folder/to-do.php");
+            header("location: http://$_SERVER[HTTP_HOST]/Project-Planner/folder/to-do.php");
       }
 
     ?>

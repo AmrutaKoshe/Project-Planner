@@ -67,7 +67,7 @@
         <i class="fas fa-times"></i>
       </label>
       <nav id="sidebar">
-        <div class="title">Side Menu</div>
+        <div class="title">Project Planner</div>
         <ul class="list-items">
         <li><a href="newProject.php">HOME</a></li>
             <?php
