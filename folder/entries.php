@@ -123,8 +123,14 @@
                       $uname = $_SESSION['login_user'];
                   
                   $result = mysqli_query($conn, "SELECT * FROM entry where pid = '$pid'");
+                  $num = mysqli_num_rows($result);
+                  if($num == 1){
                   $row = mysqli_fetch_array($result);
                   echo $row['content'];
+                  }
+                  else{
+                    echo "&lt;h1&gt;Enter your text...&lt;/h1&gt";
+                  }
                     }
                   
                   ?>
