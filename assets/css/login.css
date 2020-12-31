@@ -12,9 +12,9 @@ html,body{
   place-items: center;
   /* background: #f2f2f2; */
   background-color: #eff2f8;
-/*  background-image: url('images/birddbgg.jpg');*/
+  background-image: url('../images/birddbgg.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto 100%;
   /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
 }
 ::selection{
@@ -22,10 +22,9 @@ html,body{
   color: #fff;
 }
 .wrapper{
-  margin-top: -15%; 
-  margin-left: 43%;
+  margin-left: 33%;
   width: 30%;
-  height: 340px;
+  height: 270px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
@@ -154,45 +153,15 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
-/* Comment*/
-
-@media screen and (max-width: 1024px){
-  html,body{
-
-  }
-}
-.heading{
-  display: block;
-  font-size: 4rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  margin-left: -600px;
-  font-family: 'Poppins', sans-serif;
-}
-
-
-@media screen and (max-width: 1024px){
-  .wrapper{
-    margin-top: -15%; 
-    margin-left: 0%;
-    width: 50%;
-    height: 340px;
-    background: #fff;
-    border-radius: 20px;
-    color: #8ff668;
-    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
-  }
-}
 
 @media screen and (max-width: 768px){
   .wrapper{
-    margin-top: -15%; 
     margin-left: 0%;
-    width: 60%;
-    height: 340px;
-    background: #fff;
-    border-radius: 20px;
-    color: #8ff668;
-    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    width: 80%;
+  }
+
+  body{
+    background-image: none;
+    background-color: #dce2ec;
   }
 }

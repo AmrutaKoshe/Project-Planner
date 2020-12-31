@@ -49,9 +49,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
-    <link rel="icon" type="img/png" href="../css/images/pp.png">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <link rel="icon" type="img/png" href="../assets/css/images/pp.png">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -107,36 +107,11 @@
             }
           ?></p>
         </div>
-<!-- <div class="content">
-          <div class="checkbox">
-            <input type="checkbox" id="remember-me">
-            <label for="remember-me">Remember me</label>
-          </div>
-<div class="pass-link">
-<a href="#">Forgot password?</a></div>
-</div> -->
         <div class="fieldp" id="log">
           <input type="submit" name="submit" value="Search">
         </div>
-<!-- <div class="signup-link">
-Not a member? <a href="#">Signup now</a></div> -->
       </form>
 
 </div>
-    <!-- <div class= "searchPos">
-      <form class="example" action="action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button class="search" type="submit"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-    <div class="listDisplay">
-      <h2 class="afterSearchClick">PROJECT PLANNER found!</h2>
-      <div class="proPass">
-        <input type="password" required placeholder="Project Password">
-      </div>
-    <div class="proPass" id="log">
-     <input type="submit" value="ENTER">
-    </div>
-  </div> -->
 </body>
 </html>

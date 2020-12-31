@@ -8,15 +8,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
-    <link rel="icon" type="img/png" href="../css/images/pp.png">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <link rel="icon" type="img/png" href="../assets/css/images/pp.png">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
-    <!-- top right logout button -->
-    <!-- <section>
-      <div class="logout"><a href="logout.php" class="logout">Logout</a></div>
-    </section> -->
     <div class="wrapper">
       <input type="checkbox" id="btn" hidden>
       <label for="btn" class="menu-btn">
@@ -58,10 +54,6 @@
         <p>OR</p>
         <br>
         <button class="create" type="button" onClick="parent.location='searchProject.php'">Search for existing Project</button>
-        <!-- <div class="header">
-  Animated Side Navigation Menu</div>
-  <p>
-  using only HTML and CSS</p> -->
   </div>
 </div>
 </body>

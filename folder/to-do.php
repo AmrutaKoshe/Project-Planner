@@ -65,9 +65,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
-    <link rel="icon" type="img/png" href="../css/images/pp.png">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" type="text/css" href="../css/entries.css">
+    <link rel="icon" type="img/png" href="../assets/css/images/pp.png">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/entries.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <style type="text/css">
       .entry{
@@ -162,19 +162,6 @@
                       <button class="active"><a id="to" href="" class="active">To do list</a></button>
                       <button ><a href="tasks.php">Tasks</a></button>
                       <button ><a href="entries.php">Entries</a></button>
-                      <!-- <input type="radio" name="tab" id="home" checked>
-                      <input type="radio" name="tab" id="inbox">
-                      <input type="radio" name="tab" id="contact">
-                      <input type="radio" name="tab" id="Heart">
-                      <input type="radio" name="tab" id="About">
-                      <button for="home" class="home" style="width: 100%; height: auto;"><label>Entries</label></button> -->
-
-                      <!-- <label for="home" class="home"><a href="home.php">Entries</a></label>
-                      <label for="inbox" class="inbox"><a href="dashboardEntries.html"><i class="fas fa-user-friends"></i>Members</a></label>
-                      <label for="contact" class="contact"><a href="#"><i class="fas fa-tasks"></i>To-do List</a></label> -->
-                      <!-- <label for="heart" class="heart"><a href="#"><i class="far fa-heart"></i>Heart</a></label>
-                      <label for="about" class="about"><a href="#"><i class="far fa-user"></i>About</a></label> -->
-                      <!-- <div class="tab"></div> -->
                     </nav>
 
       </div>

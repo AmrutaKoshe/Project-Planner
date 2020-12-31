@@ -49,9 +49,9 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
     <script type="text/javascript" src="validations.js"></script>
-    <link rel="icon" type="img/png" href="../css/images/pp.png">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <link rel="icon" type="img/png" href="../assets/css/images/pp.png">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -105,20 +105,10 @@
               echo($_SESSION['error']);
             }
           ?></p>
-        </div>
-<!-- <div class="content">
-          <div class="checkbox">
-            <input type="checkbox" id="remember-me">
-            <label for="remember-me">Remember me</label>
-          </div>
-<div class="pass-link">
-<a href="#">Forgot password?</a></div>
-</div> -->
+        </div>=
         <div class="fieldp" id="log">
           <input type="submit" name="submit" value="CREATE">
         </div>
-<!-- <div class="signup-link">
-Not a member? <a href="#">Signup now</a></div> -->
       </form>
 
 </div>
