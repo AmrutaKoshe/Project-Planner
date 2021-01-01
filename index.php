@@ -55,12 +55,21 @@ if(isset($_POST['submit'])){
 
   <!-- validations -->
   <script type="text/javascript" src="folder/validations.js"></script>
+  <style type="text/css">
+    .head1{
+      background-image: url('');
+      width: 100%;
+      height: 100vh;
+      background-repeat: no-repeat;
+    }
+  </style>
 
 </head>
 
 <body>
   <!-- Masthead -->
-    <div class="wrapper" style="margin-top: 10%; margin-bottom: 16%;">
+  <section class="head1">
+    <div class="wrapper">
           <div class="title">Register Form</div>
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" name="register" onsubmit="return validateform()">
               <div class="field">
@@ -79,6 +88,7 @@ if(isset($_POST['submit'])){
               <div class="signup-link">Already a member? <a href="folder/login.php">Login now</a></div>
             </form>
           </div>
+  </section>
 
   <!-- Icons Grid -->
   <section class="features-icons bg-light text-center col-lg-12">
