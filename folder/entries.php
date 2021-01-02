@@ -64,25 +64,25 @@
 
     <style type="text/css">
       input[type=submit]{
-        float: right;
-        width: 15%;
-        background: #d9d9d9;
-        color: #555;
-        text-align: center;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
-        border-radius: 0;
-        height: 60px;
-        margin: 5px;
+        float:right;
+        height: 40px;
+        width: 20%;
+        outline: none;
+        font-size: 17px;
+        background-color: #5baed4;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        transition: all 0.3s ease;
       }
       input[type=submit]:hover {
         background-color: #0d4777;
         color: white;
+        cursor: pointer;
       }
       #sidebar{
         z-index: 1;
       }
+
     </style>
     
     <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
@@ -145,7 +145,7 @@
       <!-- insert hereeee -->
       <form action="<?php $_SERVER['PHP_SELF'];?>" method="post">
           <div>
-              <textarea cols="250" rows="50" id="content" name="content"> 
+              <textarea cols="250" rows="100" id="content" name="content"> 
                   <?php 
                     include "connect.php";
 
@@ -171,8 +171,9 @@
               </textarea>
               <script type="text/javascript">
                 CKEDITOR.replace( 'content' );
+                CKEDITOR.config.height = 345; 
               </script>
-              <input type="submit" value="Submit" name="submit"/>
+              <input type="submit" value="SUBMIT" name="submit"/>
               
               
           </div>

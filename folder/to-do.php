@@ -86,29 +86,53 @@
         text-decoration: line-through;
       }
       input[type=text]{
-        border: 1px solid gray; 
-        height: 60px; 
+        border: 2px solid #d2cfc8; 
+        height: 50px; 
         width: 84.5%; 
         padding: 10px; 
-        font-size: 20px
+        font-size: 17px;
       }
+      
+
       input[type=submit]{
+        margin-left: 40%;
+        height: 40px;
+        width: 20%;
+        outline: none;
+        font-size: 17px;
+        background-color: #5baed4;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    input[type=submit]:hover {
+        background-color: #0d4777;
+        color: white;
+        cursor: pointer;
+      }
+
+    .addBtn input{
         float: right;
         width: 15%;
-        background: #d9d9d9;
-        color: #555;
+        background-color: #0d4777;
+        color: white;
         text-align: center;
         font-size: 16px;
         cursor: pointer;
         transition: 0.3s;
         border-radius: 0;
-        height: 60px;
+        height: 50px;
         margin: 5px;
       }
-      input[type=submit]:hover {
-        background-color: #0d4777;
+      
+      .addBtn input:hover {
+        
+        background: #5baed4;
         color: white;
       }
+
+
       #sidebar{
         z-index: 1;
       }
@@ -171,7 +195,7 @@
      
      <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
             <input type="text" name="myentry" placeholder="Add entry...">
-            <div class="addBtn"><input type="submit" name="add" value="ADD" style="margin-top:-60px"></div>
+            <div class="addBtn"><input type="submit" name="add" value="ADD" style="margin-top:-50px"></div>
       </form>
 
       <!-- displaying entries -->
@@ -205,7 +229,7 @@
                     if ($row['checked']) echo "checked='checked'";
                     echo">" . "<span class='check'>" . $row["insertentry"]."</span></div>";
                 }
-                echo "<input type='submit' name='sub' value='update'></form>";
+                echo "<input type='submit' name='sub' value='UPDATE'></form>";
               }
               $conn->close();
             }
