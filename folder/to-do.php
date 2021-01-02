@@ -146,7 +146,7 @@
         <i class="fas fa-times"></i>
       </label>
       <nav id="sidebar">
-        <div class="title"><img src="css/images/pp.png" style="width: 10%; margin-top: 7%;">Project Planner</div>
+        <div class="title"><img src="" style="width: 10%; margin-top: 7%;">Project Planner</div>
         <ul class="list-items">
           <li><a href="newProject.php">Home</a></li>
                 <?php
