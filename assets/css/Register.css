@@ -157,9 +157,9 @@ form .signup-link a:hover{
 /* Comment*/
 
 @media screen and (max-width: 1024px){
-  html,body{
+  /* html,body{
 
-  }
+  } */
 }
 .heading{
   display: block;
