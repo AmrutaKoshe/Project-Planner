@@ -4,4 +4,6 @@ A website to plan your projects effortlessly! This project planner lets you mana
 
 Website link - https://projectplanner123.000webhostapp.com/
 
+## SCREENSHOTS
 
+1) Tasks tab
