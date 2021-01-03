@@ -17,12 +17,6 @@
         $pid = $_SESSION['project_id'];
         $uname = $_SESSION['login_user'];
 
-        // fetching member id
-        // $result = mysqli_query($conn, "SELECT * FROM entry where pid = '$pid'");
-        // while ($row = mysqli_fetch_array($result)) {
-        //   $mid = $row['id'];
-        // }
-
         $entery_check = mysqli_query($conn, "SELECT * FROM entry WHERE pid = '$pid'");
         $num = mysqli_num_rows($entery_check);
         if($num == 1){
@@ -56,7 +50,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
-    <link rel="icon" type="img/png" href="../assets/css/images/pp.png">
+    <link rel="icon" type="img/png" href="../assets/images/pp.png">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="../assets/css/dashboard.css">
@@ -125,6 +119,11 @@
                 }
                 ?>
           <li><a href="logout.php">LOGOUT</a></li>
+
+            <div style="position: fixed;left: 4px;bottom: 0;">
+              <p>Made with &hearts; by <a href="https://github.com/nikita24383/">Nikita</a> &amp; <a href="https://github.com/AmrutaKoshe/">Amruta</a></p>
+            </div>
+            
         </ul>
       </nav>
     </div>

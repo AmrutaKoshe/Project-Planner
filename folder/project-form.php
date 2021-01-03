@@ -49,7 +49,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Dashboard | Project Planner</title>
     <script type="text/javascript" src="validations.js"></script>
-    <link rel="icon" type="img/png" href="../assets/css/images/pp.png">
+    <link rel="icon" type="img/png" href="../assets/images/pp.png">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
@@ -86,6 +86,11 @@
                 }
                 ?>
         <li><a href="logout.php">LOGOUT</a></li>
+
+            <div style="position: fixed;left: 4px;bottom: 0;">
+              <p>Made with &hearts; by <a href="https://github.com/nikita24383/">Nikita</a> &amp; <a href="https://github.com/AmrutaKoshe/">Amruta</a></p>
+            </div>
+            
         </ul>
       </nav>
     </div>
