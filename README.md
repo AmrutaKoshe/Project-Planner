@@ -6,6 +6,14 @@ Website link - https://projectplanner123.000webhostapp.com/
 
 ## SCREENSHOTS
 
-1) Tasks tab
+1) To do lists= tab
+
+![alt text](https://github.com/AmrutaKoshe/Project-Planner/blob/master/to%20do%20list.PNG)
+
+2) Tasks tab
 
 ![alt text](https://github.com/AmrutaKoshe/Project-Planner/blob/master/tasks.PNG)
+
+3) Entries tab
+
+![alt text](https://github.com/AmrutaKoshe/Project-Planner/blob/master/entries.PNG)
