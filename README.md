@@ -7,3 +7,5 @@ Website link - https://projectplanner123.000webhostapp.com/
 ## SCREENSHOTS
 
 1) Tasks tab
+
+![alt text](https://github.com/AmrutaKoshe/Project-Planner/blob/master/tasks.PNG)
